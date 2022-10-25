@@ -1,7 +1,9 @@
 ;(async() => {
   const obj = { key: 'value' };
 
+  console.log('before', obj.stack)
+
   Error.captureStackTrace(obj)
 
-  console.log(obj.stack)
+  console.log('after', obj.stack)
 })()

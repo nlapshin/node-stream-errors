@@ -19,3 +19,5 @@
 
 - чистый код
 - слоистая архитектура
+
+https://github.com/nlapshin/node-stream-errors

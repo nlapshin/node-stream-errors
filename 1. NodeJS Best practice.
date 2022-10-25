@@ -1,0 +1,74 @@
+1. NodeJS Best practice.
+
+Был ли опыт создания(или участия) в проекте Javascript?
+С нуля начинаем проект.
+
+Подход в лоб:
+- открыть браузер(консоль) и писать код.
+
+Туллинг
+
+- хороший текстовый редактор с плагинами и т.д.
+- git. Что можно настроить?
+-- .gitignore. husky
+-- git commit и git push. Hook(или перехватчики), которые
+позволяют выполнить какое-нибудь действие(проверку).
+-- linter - eslint(проверка кода на качества по правилам).
+-- prettier - жесткий валидатор вида кода.
+
+Важно:
+-- linter(опционально prettier).
+-- тесты(тестировать наш код).
+-- husky - проверять код перед коммитом(пушем)
+
+Опционально
+-- editconfig(https://gist.github.com/hoyangtsai/699254da7d4426c9919b)
+-- lint-staged(https://github.com/okonet/lint-staged)
+-- istamblul(https://istanbul.js.org/)
+
+Continues Integration.
+
+Что иметь в проекте?
+
+- Логгировать наш сервер.
+console.log, console.error. Почему не хватает?
+Пишет в наши терминалы. ELK
+- Тестирование.
+Желательно добавлять.
+- Мониторинг.
+Мониторить работу нашего приложения.
+Проверять на доступность и собирать ошибки с продакшенов.
+https://habr.com/ru/post/508686/
+
+CPU/Memory/Free Space. Grafana prometeus
+
+- Профилирование.
+На одном пользователе все норм
+На 1000 все плохо.
+Нагрузочные тестирование: apache-benchmark или autocannon.
+Системы профилирование: Нативное в nodeJS и ClinicJS.
+
+- Code Analytic.
+https://www.sonarqube.org/
+
+- Разные среды выполнения
+localhost - разработка на машине
+dev - среда тестирования
+staging - пред продакшен
+production - среда продакшена
+
+Код
+
+- Code review.
+- Чистый код, чистая архитектура. Без догматизма. 
+KISS(Keep it simple stupid)
+DRY(do not repeat yourself)
+- Слоистая архитектура(абстракции) 
+
+function getAllItems() {
+  return sql.query('SQL SELECT * FROM table')
+}
+
+2. NodeJS Stream.
+
+3. NodeJS Error.

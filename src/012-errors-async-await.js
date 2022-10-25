@@ -1,4 +1,5 @@
 
+/*
 a();
 
 function a() {
@@ -12,28 +13,28 @@ function b() {
 function c() {
   throw new Error('error c')
 }
+*/
 
+;(async() => {
+  await aAsync();
+})()
 
-// ;(async() => {
-//   await aAsync();
-// })()
+async function aAsync() {
+  return await bAsync()
+}
 
-// async function aAsync() {
-//   return await bAsync()
-// }
+async function bAsync() {
+  return await cAsync()
+}
 
-// async function bAsync() {
-//   return await cAsync()
-// }
+async function cAsync() {
+  await delay();
 
-// async function cAsync() {
-//   await delay();
+  throw new Error('error c async')
+}
 
-//   throw new Error('error c async')
-// }
-
-// function delay() {
-//   return new Promise(res => {
-//     setTimeout(res, 1000)
-//   })
-// }
+function delay() {
+  return new Promise(res => {
+    setTimeout(res, 1000)
+  })
+}
