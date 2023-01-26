@@ -4,12 +4,15 @@ const zlib = require('zlib');
 const crypto = require('crypto');
 
 ;(async () => {
-  const readStream = fs.createReadStream(__dirname + 'data/input-number', { encoding: 'utf8' })
-  const writeStream = fs.createWriteStream(__dirname + 'data/output-number.gz', { encoding: 'utf8' });
-
-  const gzipTransform = zlib.createGzip();
+  const readStream = fs.createReadStream(__dirname + '/data/input-number', { encoding: 'utf8' })
+  const writeStream = fs.createWriteStream(__dirname + '/data/output-number.gz', { encoding: 'utf8' });
+  
+  // зашифровать
   const aesTransform = crypto.createCipheriv('aes-256-cbc', crypto.randomBytes(32), crypto.randomBytes(16));
-
+  // архивировать
+  const gzipTransform = zlib.createGzip();
+  
+  // pipeline
   pipeline(
     readStream,
     aesTransform,

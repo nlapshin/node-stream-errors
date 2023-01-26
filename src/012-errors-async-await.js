@@ -1,39 +1,39 @@
 
-a();
+// a();
 
-function a() {
-  return b()
+// function a() {
+//   return b()
+// }
+
+// function b() {
+//   return c()
+// }
+
+// function c() {
+//   throw new Error('error c')
+// }
+
+
+;(async() => {
+  await aAsync();
+})()
+
+async function aAsync() {
+  return await bAsync() // надо слово await
 }
 
-function b() {
-  return c()
+async function bAsync() {
+  return await cAsync()
 }
 
-function c() {
-  throw new Error('error c')
+async function cAsync() {
+  await delay();
+
+  throw new Error('error c async')
 }
 
-
-// ;(async() => {
-//   await aAsync();
-// })()
-
-// async function aAsync() {
-//   return await bAsync()
-// }
-
-// async function bAsync() {
-//   return await cAsync()
-// }
-
-// async function cAsync() {
-//   await delay();
-
-//   throw new Error('error c async')
-// }
-
-// function delay() {
-//   return new Promise(res => {
-//     setTimeout(res, 1000)
-//   })
-// }
+function delay() {
+  return new Promise(res => {
+    setTimeout(res, 1000)
+  })
+}

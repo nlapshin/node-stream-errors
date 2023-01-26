@@ -14,3 +14,6 @@ const { Transform } = require("stream");
 
   readStream.pipe(uppercase).pipe(writeStream);
 })()
+
+// Читаем кусочками данные
+// Можем менять состояние эти данных API
