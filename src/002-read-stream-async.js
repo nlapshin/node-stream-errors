@@ -11,3 +11,8 @@ const fs = require('fs');
 
   console.log(data)
 })()
+
+// Read stream // только на чтение
+// Write stream // только на запись
+// Duplex stream // и так и так
+// Transform stream // стрим для преобразование.

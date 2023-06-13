@@ -1,6 +1,20 @@
 const fs = require('fs');
 
+// 1. Читает файл
+// 2. Шифрует его
+// 3. Архивирует его
+// 4. Записывает его в другой файл.
+
+
 // EventEmitter
+
+// Сначала читают файл полностью, а потом что-то с ним делают.
+// fs.readFileSync - это ещё блокирует EventLoop
+// fs.readFile
+// fs.promises.readFile
+
+
+// fs.createReadStream
 
 // Создай стрим на этот файл
 const readStream = fs.createReadStream(__dirname + '/data/input-number')
@@ -13,12 +27,14 @@ readStream.setEncoding('UTF8')
 
 // Подписка на поток данных
 readStream.on('data', function(chunk) {
+  console.log('chunk', chunk);
+
   data += chunk;
 });
 
 // Когда все закончит
 readStream.on('end',function() {
-  console.log(data);
+  console.log('end', data);
 });
 
 // Если случилась ошибка

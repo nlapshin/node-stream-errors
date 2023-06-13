@@ -77,3 +77,6 @@ DDD - domain driven development
 // git -> npm -> jest -> linters -> ci/cd -> write code
 // c архитектуру
 // 
+
+
+// stdin, stdout, stderr

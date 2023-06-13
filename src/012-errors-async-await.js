@@ -1,25 +1,24 @@
 
-// a();
+a();
 
-// function a() {
-//   return b()
-// }
+function a() {
+  return b()
+}
 
-// function b() {
-//   return c()
-// }
+function b() {
+  return c()
+}
 
-// function c() {
-//   throw new Error('error c')
-// }
-
+function c() {
+  throw new Error('error c')
+}
 
 ;(async() => {
   await aAsync();
 })()
 
 async function aAsync() {
-  return await bAsync() // надо слово await
+  return await bAsync()
 }
 
 async function bAsync() {

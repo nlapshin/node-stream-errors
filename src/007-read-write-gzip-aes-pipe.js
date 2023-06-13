@@ -14,10 +14,10 @@ const crypto = require('crypto');
   
   // pipeline
   pipeline(
-    readStream,
-    aesTransform,
-    gzipTransform,
-    writeStream,
+    readStream, // читать стрим
+    aesTransform, // данные шифровать
+    gzipTransform, // архивировать
+    writeStream, // записывать
     (err) => {
       if (err) {
         console.error('Pipeline failed', err);
