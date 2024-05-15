@@ -10,14 +10,18 @@ app.get('/calc-hash/:count', (req, res) => {
 })
 
 app.get('/calc-hash-fork/:count', (req, res) => {
+  // Создаем подпроцессс
   const forkedProcess = fork(__dirname + '/013-fork-threads-hash-calc-fork.js');
 
+  // шлем ему данные
   forkedProcess.send({ data: { count: req.params.count } });
 
+  // слушаем ответ
   forkedProcess.on('message', (result) => {
       res.json(result);
   });
 
+  // Если ошибка, то выбрасываем её
   forkedProcess.on('error', (error) => {
       res.status(500).json({ error });
   });
@@ -35,7 +39,7 @@ app.get('/calc-hash-thread/:count', async (req, res) => {
   worker.on('error', (error) => {
     console.log(error);
   
-      res.status(500).json({ error });
+    res.status(500).json({ error });
   });
 });
 
@@ -66,3 +70,7 @@ function calcHashes(count = 100) {
 
   return hashes;
 }
+
+// Это создавать подпроцессы и подпотоки
+// Создаем клон нашего сервера - это подпроцесс.
+// Легковестный клон нашего сервера - это подпоток.
