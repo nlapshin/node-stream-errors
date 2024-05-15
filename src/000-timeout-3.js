@@ -10,10 +10,17 @@ timer();
 
 function timer() {
   setTimeout(function fun() {
+    // Может занимать ms
     console.log(`timeout: ${++counter}`);
   
     timer()
   }, 2000);
+}
+
+async function delay(ms) {
+  return new Promise(res => {
+    setTimeout(res, ms);
+  })
 }
 
 // Как добавить в микротаску задачу?

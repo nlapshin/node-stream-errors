@@ -1,4 +1,12 @@
-const fs = require('fs');
+// 1. Читает файл
+// 2. Шифрует его
+// 3. Архивирует его
+// 4. Записывает его в другой файл.
+
+// Сделать такую задачу.
+// Почему нам надо читать файл как поток, а не нельзя прочитать его целиком и с ним поработать.
+
+// Если файл большой и его надо полностью прочитать и тогда всё это будет в память
 
 // 1. Читает файл
 // 2. Шифрует его
@@ -13,36 +21,44 @@ const fs = require('fs');
 // fs.readFile
 // fs.promises.readFile
 
-
 // fs.createReadStream
 
-// Создай стрим на этот файл
-const readStream = fs.createReadStream(__dirname + '/data/input-number')
+const fs = require('node:fs');
 
-// Добавлять данные
+// подключаем пакет.
+const readStream = fs.createReadStream(__dirname + '/data/input-number');
+
 let data = ''
 
-// Какой формат данных
 readStream.setEncoding('UTF8')
 
-// Подписка на поток данных
-readStream.on('data', function(chunk) {
+// Возможности EventEmitter
+readStream.on('data', (chunk) => {
   console.log('chunk', chunk);
 
   data += chunk;
 });
 
-// Когда все закончит
-readStream.on('end',function() {
+readStream.on('end', () => {
   console.log('end', data);
 });
 
-// Если случилась ошибка
-readStream.on('error', function(err) {
+readStream.on('error', (err) => {
   console.log(err.stack);
 });
 
 console.log("Program Ended");
+
+
+
+
+
+
+
+
+
+// Создай стрим на этот файл
+
 
 // Поставим задачу вычитать данные файл
 // Зашифровать

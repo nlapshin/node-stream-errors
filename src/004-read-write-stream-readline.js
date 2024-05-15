@@ -1,5 +1,5 @@
-const fs = require('fs');
-const readline = require('readline');
+const fs = require('node:fs');
+const readline = require('node:readline');
 
 ;(async () => {
   const readStream = fs.createReadStream(__dirname + '/data/input-number', { encoding: 'utf8' });
@@ -10,8 +10,6 @@ const readline = require('readline');
   });
 
   for await (const chunk of rl) {
-    console.log(chunk);
-
     const multiTwo = parseInt(chunk.trim()) * 2;
 
     writeStream.write(multiTwo + '\n')

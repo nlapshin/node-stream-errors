@@ -6,13 +6,10 @@ const fs = require('fs');
   let data = ''
 
   for await (const chunk of readStream) {
+    console.log('chuck', chunk);
+
     data += chunk
   }
 
   console.log(data)
-})()
-
-// Read stream // только на чтение
-// Write stream // только на запись
-// Duplex stream // и так и так
-// Transform stream // стрим для преобразование.
+})();

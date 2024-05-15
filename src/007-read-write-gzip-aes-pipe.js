@@ -1,7 +1,7 @@
-const { pipeline } = require('stream');
-const fs = require('fs');
-const zlib = require('zlib');
-const crypto = require('crypto');
+const { pipeline } = require('node:stream');
+const fs = require('node:fs');
+const zlib = require('node:zlib');
+const crypto = require('node:crypto');
 
 ;(async () => {
   const readStream = fs.createReadStream(__dirname + '/data/input-number', { encoding: 'utf8' })
@@ -18,7 +18,7 @@ const crypto = require('crypto');
     aesTransform, // данные шифровать
     gzipTransform, // архивировать
     writeStream, // записывать
-    (err) => {
+    (err) => { // Если ошибка есть, то выбросит первым аргументов
       if (err) {
         console.error('Pipeline failed', err);
       } else {

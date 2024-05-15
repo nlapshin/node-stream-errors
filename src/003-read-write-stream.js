@@ -10,10 +10,5 @@ const fs = require('fs');
   }
 
   // закрыть стрим
-  writeStream.end('100\n')
+  writeStream.end('100500\n') // финальную строчку.
 })()
-
-// Readable stream - на чтения
-// Writeable stream - на запись
-// Duplex stream - чтение/запись
-// Transform stream - преобразование

@@ -11,7 +11,6 @@ const { Transform } = require("stream");
     },
   });
 
-
   readStream.pipe(uppercase).pipe(writeStream);
 })()
 
